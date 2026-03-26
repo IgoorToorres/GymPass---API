@@ -13,7 +13,7 @@ describe('Get user Use Case', () => {
     sut = new GetUserProfileUseCase(usersRepository)
   })
 
-  it.only('should be able to get a user by id ', async () => {
+  it('should be able to get a user by id ', async () => {
     const { id } = await usersRepository.create({
       name: 'Fulano',
       email: 'fulano@gmail.com',
@@ -25,9 +25,9 @@ describe('Get user Use Case', () => {
     expect(user.id).toEqual(id)
   })
 
-  it.only('should not be able to find a user with wrong id ', async () => {
-    expect(async () => {
-      await sut.execute({ userId: 'teste-id' })
-    }).rejects.instanceOf(ResourceNotFoundError)
+  it('should not be able to find a user with wrong id ', async () => {
+    await expect(sut.execute({ userId: 'teste-id' })).rejects.instanceOf(
+      ResourceNotFoundError,
+    )
   })
 })
