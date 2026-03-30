@@ -35,7 +35,7 @@ export default <Environment>{
       async teardown() {
         // apagar banco de dados teste
         await prisma.$executeRawUnsafe(
-          `DROP SCHEMA IF EXISTS ${schema} CASCADE`,
+          `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
         )
 
         await prisma.$disconnect()
