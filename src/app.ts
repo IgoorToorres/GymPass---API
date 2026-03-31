@@ -37,6 +37,7 @@ app.setErrorHandler((error, _, reply) => {
     console.error(error)
   } else {
     // TODO: Here we should log to an external tool like DataDog/NewRelic/Sentry
+    // task futura
   }
 
   return reply.status(500).send({ message: 'internal server error' })
