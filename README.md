@@ -108,6 +108,15 @@ O servidor sobe por padrão em `http://localhost:3333`.
 - Coverage: `npm run test:coverage`
 - Watch: `npm run test:watch`
 
+## CI
+
+O pipeline de CI roda no GitHub Actions e é disparado em `push`. Ele:
+- configura o Node `22.12.0` com cache do npm;
+- instala dependências com `npm ci`;
+- executa os testes unitários com `npm run test`.
+
+Workflow: `.github/workflows/run-unit-tests.yml`
+
 ## Observações
 
 - O refresh token é armazenado em cookie `httpOnly`.
