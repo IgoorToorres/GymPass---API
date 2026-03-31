@@ -110,12 +110,13 @@ O servidor sobe por padrão em `http://localhost:3333`.
 
 ## CI
 
-O pipeline de CI roda no GitHub Actions e é disparado em `push`. Ele:
-- configura o Node `22.12.0` com cache do npm;
-- instala dependências com `npm ci`;
-- executa os testes unitários com `npm run test`.
+O pipeline de CI roda no GitHub Actions com dois workflows:
+- **Push**: roda testes unitários com Node `22.12.0`, `npm ci` e `npm run test`.
+- **Pull Request**: roda testes E2E com Node `22.12.0`, `npm ci` e `npm run test:e2e`, usando Postgres via service.
 
-Workflow: `.github/workflows/run-unit-tests.yml`
+Workflows:
+- `.github/workflows/run-unit-tests.yml`
+- `.github/workflows/run-e2e-tests.yml`
 
 ## Observações
 
