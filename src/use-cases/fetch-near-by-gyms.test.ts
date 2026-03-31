@@ -12,7 +12,7 @@ describe('Fetch near by Gyms use case', () => {
     sut = new FetchNearByGymsUseCase(gymRepository)
   })
 
-  it.only('should be able to fetch nearby gyms', async () => {
+  it('should be able to fetch nearby gyms', async () => {
     await gymRepository.create({
       title: 'far gym',
       latitude: new Decimal(-15.6887474),
