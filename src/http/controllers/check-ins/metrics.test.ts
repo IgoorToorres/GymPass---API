@@ -13,7 +13,7 @@ describe('Metris Check-in (e2e)', () => {
   })
 
   it('shloud be able to get the checkIn metrics (count)', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser(app, true)
 
     const gym = await request(app.server)
       .post('/gyms')
